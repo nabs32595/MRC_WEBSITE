@@ -1,10 +1,10 @@
 <?php
 //Step1
- $db = mysqli_connect('localhost','root','d659a3253b1764b42bd3f4862389ca42f0303703eadc0490','url')
+ $db = mysqli_connect('localhost','root','','url')
  or die('Error connecting to MySQL server.');
 
 //Step2
-$query = "SELECT * FROM user";
+$query = "SELECT * FROM user ORDER BY no desc";
 mysqli_query($db, $query) or die('Error querying database.');
 
 //Step3
@@ -93,7 +93,6 @@ $row = mysqli_fetch_array($result);
 	 						<thead class="thead-inverse">
 	 						 <tr> <th> NAME </th> <th> Played </th> <th> Pts </th> <th> TB </th> <th> Pts Diff </th> </tr>
 	 						</thead>	 
-
 							<?php while ($row = mysqli_fetch_array($result)) { echo
 
 							' <tbody> <tr>
@@ -113,14 +112,7 @@ $row = mysqli_fetch_array($result);
 									<td>'. $row['point_difference'] .'<br />
 									</td>
 
-									<td class="td-actions text-right">
-                					<button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
-                    				<i class="fa fa-edit"></i>
-					                </button>
-					                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-					                <i class="fa fa-times"></i>
-					                </button>
-					            	</td>
+									
 
 								</tr> </tbody>';
 								}?>
