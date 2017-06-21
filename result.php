@@ -1,6 +1,6 @@
 <?php
 //Step1
- $db = mysqli_connect('localhost','root','','url')
+ $db = mysqli_connect('localhost','root','d659a3253b1764b42bd3f4862389ca42f0303703eadc0490','url')
  or die('Error connecting to MySQL server.');
 
 //Step2
@@ -67,47 +67,68 @@ $row = mysqli_fetch_array($result);
 
     <div class="wrapper">
 
+    <div class="header header-filter" style="background-image: url('assets/img/bg.jpg');">
+            <div class="container">
+                <div class="row">
+					<div class="col-md 12">
+						<h3 class="title">UNITEN ROBOTICS LEAGUE 2017</h3>
+					    
+					</div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- ==== Result ==== -->
 		<div class="main main-raised">
-			<div class="container" id="Overview" name="Overview">
+			<div class="container">
 		    	<div class="section-landing">
 	                <div class="row">
-	                    <div class="col-md-8 col-md-offset-2">
-
+	                    <div class="col-md-8 col-md-offset-2"> 
 	                        <h2 class="title">Result</h2>
 
-	                        <table class="table"> 
+							<div class="table-responsive">	                       
+	                        <table class="table table-sm" > 
 
-	 						<thead>
-	 						 <tr> <th> NAME </th> <th> PLAYED </th> <th> REMAINING</th> <th> POINT SCORED </th> <th> POINT DIFFERENCE </th> </tr>
+	 						<thead class="thead-inverse">
+	 						 <tr> <th> NAME </th> <th> Played </th> <th> Pts </th> <th> TB </th> <th> Pts Diff </th> </tr>
 	 						</thead>	 
 
 							<?php while ($row = mysqli_fetch_array($result)) { echo
 
 							' <tbody> <tr>
 
-									<th>'. $row['name'] . '<br /> 
-									</th>
+									<td>'. $row['name'] . '<br /> 
+									</td>
 
-									<th>'. $row['played'] .'<br />
-									</th>
+									<td>'. $row['played'] .'<br />
+									</td>
 
-									<th>'. $row['point'] .'<br />
-									</th>
+									<td>'. $row['point'] .'<br />
+									</td>
 
-									<th>'. $row['point'] .'<br />
-									</th>
+									<td>'. $row['point'] .'<br />
+									</td>
 
-									<th>'. $row['point_difference'] .'<br />
-									</th>
+									<td>'. $row['point_difference'] .'<br />
+									</td>
+
+									<td class="td-actions text-right">
+                					<button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                    				<i class="fa fa-edit"></i>
+					                </button>
+					                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+					                <i class="fa fa-times"></i>
+					                </button>
+					            	</td>
 
 								</tr> </tbody>';
 								}?>
 
-							</table>	                       	
+							</table>
+							</div>								                       	
 	                    </div>
-	                </div>
+	                </div> 
 	            </div>
 		     </div>
 		</div>
